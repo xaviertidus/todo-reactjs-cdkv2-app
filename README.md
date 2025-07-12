@@ -71,3 +71,11 @@ After deployment:
 - Check CloudWatch for Lambda logs (retention 7 days).
 - Cognito uses email verification; test with real emails.
 - If config.json is missing during dev (npm start), ensure stacks are deployed and run `node scripts/update-config.js` manually if needed.
+
+## Cleaning the Project for Git
+To prepare the project for Git commit (e.g., remove node_modules, caches, build artifacts), use the `clean-all.sh` script at the root.
+
+- Make it executable (first time): `chmod +x clean-all.sh`
+- Run: `./clean-all.sh`
+
+This script cleans NPM cache, removes node_modules/package-lock.json/cdk.out in all subprojects, deletes React build folder, and clears outputs folder. After running, the tree is clean for git add.
