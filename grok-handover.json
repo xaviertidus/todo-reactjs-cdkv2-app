@@ -1,0 +1,55 @@
+{
+  "generatedBy": "Grok 4",
+  "generatedAt": "2025-07-12T00:00:00Z",
+  "projectName": "To-Do App Boilerplate",
+  "overview": {
+    "purpose": "Boilerplate for personal to-do app with Cognito auth, DynamoDB CRUD via Lambda/API Gateway, React frontend with MUI, hosted on S3/CloudFront.",
+    "features": [
+      "User registration/confirmation/login/logout with Cognito",
+      "To-do list: Add, edit, delete, mark complete (strike-through), filter",
+      "UI: Material-UI components, loading spinners, no Fade animations (removed due to prop errors)",
+      "Infra: CDK stacks for core (Cognito), API (Gateway/Lambda/DynamoDB), hosting infra (S3/CloudFront), code deployment (separate CDK in reactjs-app/cdk-deploy)",
+      "Config: Centralized in project.json (regions, domains, ARNs, CORS, naming); dynamic generation for React config.json",
+      "Cost tracking: AppManagerCFNStackKey tag = projectName on all stacks",
+      "CORS: Dynamic in Lambdas (match origin), gateway responses for errors, credentials true"
+    ],
+    "techStack": {
+      "backend": "AWS CDK V2 (TypeScript), Python 3.12 Lambdas, DynamoDB",
+      "frontend": "React 18, Material-UI 5, React Router 6, amazon-cognito-identity-js, react-toastify",
+      "other": "Node.js/npm, bash scripts (clean-all.sh)"
+    }
+  },
+  "directoryStructure": {
+    "root": "project.json, clean-all.sh, outputs/, GROK_README.md",
+    "core-infrastructure": "CDK for Cognito (UserPool, Client, IdentityPool)",
+    "api": "CDK for API Gateway, Lambdas (todos.py, todo_item.py with DecimalEncoder), DynamoDB, custom domain/DNS",
+    "apphosting": "CDK for S3 bucket, CloudFront (with OAI for private access), custom domain/DNS",
+    "reactjs-app": "React app with pages/components (MUI styled), scripts/update-config.js (generates config.json), cdk-deploy/ (CDK for S3 upload/CloudFront invalidate)"
+  },
+  "configuration": {
+    "project.json keys": "projectName (stack prefix, tag value), regions (default, cloudfrontAcm), domains (website, api), acmArns (api, cloudfront), cors (allowedOrigins), s3 (hostingBucket naming), dynamodb (tableName naming), cognito (additionalFields)",
+    "dynamic": "React config.json generated from project.json + outputs (cognito from core, apiDomain from api, websiteDomain from apphosting)"
+  },
+  "deploymentFlow": [
+    "Edit project.json (unique projectName, your domains/ARNs)",
+    "Deploy core: cd core-infrastructure && npm install && npm run deploy",
+    "Deploy API: cd api && npm install && npm run deploy",
+    "Deploy hosting infra: cd apphosting && npm install && npm run deploy",
+    "React: cd reactjs-app && npm install && npm run build (generates config.json)",
+    "Deploy code: cd reactjs-app/cdk-deploy && npm install && npm run deploy (auto-builds React)"
+  ],
+  "UI details": "MUI for forms/lists (TextField, Button, ListItem, etc.), spinners (CircularProgress), no animations (Fade removed due to prop errors), login has register link, home has greeting/filter/add/list with edit/delete/complete",
+  "scripts": {
+    "clean-all.sh": "Run ./clean-all.sh to remove node_modules/builds/caches for Git",
+    "update-config.js": "Generates React src/config.json from project.json/outputs (run via prestart/prebuild)"
+  },
+  "troubleshooting": {
+    "CORS": "Dynamic in Lambdas (match origin from ALLOWED_ORIGINS env), gateway responses for errors, credentials true in preflight",
+    "Auth": "Cognito IDs from core outputs; authorizer attached per method",
+    "Serialization": "DecimalEncoder in Lambdas for DynamoDB numbers",
+    "Reserved keywords": "Alias 'text' in UpdateExpression",
+    "White screen": "Check config.json generation, console for JS errors (e.g., missing imports like CognitoUserPool)",
+    "Logs": "CloudWatch (7-day retention); check for KeyError on authorizer (handled with 401)"
+  },
+  "continuingDevelopment": "Update components/Lambdas, redeploy stack; customize MUI theme in App.js; add features via new endpoints/UI; use clean-all.sh before Git commits"
+}
