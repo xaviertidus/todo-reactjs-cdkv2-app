@@ -1,0 +1,16 @@
+{
+  "environmentConfig": {
+    "coreInfrastructure": {
+      "cognitoConfiguration": {
+        "identityPoolId": "ap-southeast-2:fbb7155c-c7f2-42c6-bca1-d1e32be2cf6f",
+        "userpoolId": "ap-southeast-2_XEesbYlOv",
+        "userpoolClientId": "559ge8s2iqvh8aso8meauhj3os"
+      }
+    },
+    "hostingInfrastructure": {
+      "websiteDomain": "todo.true.com.au",
+      "apiDomain": "todoapi.true.com.au"
+    }
+  },
+  "appConfig": {}
+}

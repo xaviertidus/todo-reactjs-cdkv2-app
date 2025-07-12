@@ -1,0 +1,37 @@
+{
+  "name": "reactjs-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.24.1",
+    "amazon-cognito-identity-js": "^6.3.12",
+    "react-toastify": "^10.0.5",
+    "react-scripts": "5.0.1",
+    "@mui/material": "^5.15.0",  
+    "@emotion/react": "^11.11.1",  
+    "@emotion/styled": "^11.11.0",  
+    "@mui/icons-material": "^5.15.0"  
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "prestart": "node scripts/update-config.js",  
+    "build": "react-scripts build",
+    "prebuild": "node scripts/update-config.js",  
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

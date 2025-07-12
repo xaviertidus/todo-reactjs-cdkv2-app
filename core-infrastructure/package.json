@@ -1,0 +1,22 @@
+{
+  "name": "core-infrastructure",
+  "version": "0.1.0",
+  "bin": {
+    "core-infrastructure": "core-infrastructure.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "cdk": "cdk",
+    "deploy": "cdk deploy --outputs-file ../outputs/core.json --require-approval never"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "aws-cdk": "^2.148.0",
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "aws-cdk-lib": "^2.148.0",
+    "constructs": "^10.0.0"
+  }
+}

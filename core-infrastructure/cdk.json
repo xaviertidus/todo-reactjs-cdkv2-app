@@ -1,0 +1,7 @@
+{
+  "app": "node stacks/core-infrastructure.js",
+  "watch": true,
+  "context": {
+    "aws-cdk:enableDiffNoFail": true
+  }
+}

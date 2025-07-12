@@ -1,0 +1,7 @@
+{
+  "app": "node stacks/apphosting.js",
+  "watch": true,
+  "context": {
+    "aws-cdk:enableDiffNoFail": true
+  }
+}

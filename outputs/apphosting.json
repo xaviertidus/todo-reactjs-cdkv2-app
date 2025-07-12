@@ -1,0 +1,7 @@
+{
+  "todo-AppHostingStack": {
+    "CloudFrontDistributionId": "ENJC5DNDJARXK",
+    "CloudFrontDomain": "https://todo.true.com.au",
+    "S3HostingBucketName": "static-todoapp-website"
+  }
+}

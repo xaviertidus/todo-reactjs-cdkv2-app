@@ -1,0 +1,9 @@
+body {
+  font-family: 'Roboto', sans-serif;  /* Ensure Roboto for MUI */
+  margin: 0;
+  padding: 0;
+}
+
+.completed {
+  text-decoration: line-through;
+}

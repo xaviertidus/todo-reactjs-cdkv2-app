@@ -1,0 +1,7 @@
+{
+  "app": "node stacks/api.js",
+  "watch": true,
+  "context": {
+    "aws-cdk:enableDiffNoFail": true
+  }
+}
