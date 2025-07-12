@@ -1,34 +1,35 @@
 {
-  "projectName": "my-todo-app",
+  "projectName": "todo",
   "regions": {
-    "default": "us-east-1",
+    "default": "ap-southeast-2",
     "cloudfrontAcm": "us-east-1"
   },
   "domains": {
-    "website": "example.com",
-    "api": "api.example.com"
+    "website": "todo.true.com.au",
+    "api": "todoapi.true.com.au"
   },
   "acmArns": {
-    "api": "arn:aws:acm:us-east-1:123456789012:certificate/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-    "cloudfront": "arn:aws:acm:us-east-1:123456789012:certificate/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    "api": "arn:aws:acm:ap-southeast-2:489357083786:certificate/55ba1e05-016c-4a3c-83f6-752a0cca24ee",
+    "cloudfront": "arn:aws:acm:us-east-1:489357083786:certificate/407b2f2b-9b27-4f88-ac4d-5c954a402597"
   },
   "cors": {
     "allowedOrigins": [
-      "https://example.com",  
-      "https://api.example.com",  
-      "http://localhost:3000"
+      "https://todo.true.com.au",
+      "https://todoapi.true.com.au",
+      "http://localhost:3000",
+      "http://localhost:3001"
     ]
   },
   "s3": {
     "hostingBucket": {
-      "prefix": "static-",  
-      "suffix": "-website"  
+      "prefix": "static-",
+      "suffix": "-website"
     }
   },
   "dynamodb": {
     "tableName": {
-      "prefix": "myapp-",  
-      "suffix": "-todos"  
+      "prefix": "optionalPrefix-",
+      "suffix": "-optionalSuffix"
     }
   },
   "cognito": {
@@ -36,6 +37,6 @@
       "given_name",
       "family_name",
       "email"
-    ]  
+    ]
   }
 }

@@ -1,0 +1,41 @@
+{
+  "projectName": "my-todo-app",
+  "regions": {
+    "default": "us-east-1",
+    "cloudfrontAcm": "us-east-1"
+  },
+  "domains": {
+    "website": "example.com",
+    "api": "api.example.com"
+  },
+  "acmArns": {
+    "api": "arn:aws:acm:us-east-1:123456789012:certificate/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "cloudfront": "arn:aws:acm:us-east-1:123456789012:certificate/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+  },
+  "cors": {
+    "allowedOrigins": [
+      "https://example.com",  
+      "https://api.example.com",  
+      "http://localhost:3000"
+    ]
+  },
+  "s3": {
+    "hostingBucket": {
+      "prefix": "static-",  
+      "suffix": "-website"  
+    }
+  },
+  "dynamodb": {
+    "tableName": {
+      "prefix": "myapp-",  
+      "suffix": "-todos"  
+    }
+  },
+  "cognito": {
+    "additionalFields": [
+      "given_name",
+      "family_name",
+      "email"
+    ]  
+  }
+}
